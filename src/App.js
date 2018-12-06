@@ -17,14 +17,17 @@ class App extends Component {
                 <Link to="/about">About</Link>
               </li>
               <li>
-                <Link to="/userpage">UserPage</Link>
+                <Link to="/users">UserPage</Link>
               </li>
             </ul>
             <hr/>
             <Switch>
               <Route exact path="/" component={() => <h1>Hello World!</h1>}/>
               <Route path="/about" component={AboutPage}/>
-              <Route path="/userpage" component={UserPage}/>
+              <Route path="/users/:userid" component={({match}) => {
+                 return <h1> hello user {match.params.userid}</h1>
+              }}/>
+              <Route exact path="/users" component={UserPage}/>
               <Route component={NotFoundPage}/>
             </Switch>
             </nav>
